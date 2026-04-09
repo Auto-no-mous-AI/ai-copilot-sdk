@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run project checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f package-lock.json ]; then
+            npm ci
+            npm run lint --if-present
+            npm test --if-present
+          elif [ -f pnpm-lock.yaml ]; then
+            corepack enable
+            pnpm install --frozen-lockfile
+            pnpm run lint --if-present
+            pnpm test --if-present
+          elif [ -f yarn.lock ]; then
+            corepack enable
+            yarn install --immutable || yarn install --frozen-lockfile
+            yarn run lint --if-present
+            yarn test --if-present
+          else
+            echo "No JS project files yet. CI scaffold is active."
+          fi
