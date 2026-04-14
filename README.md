@@ -1,4 +1,7 @@
-﻿# AI Copilot SDK
+# AI Copilot SDK
+[![CI](https://github.com/Auto-no-mous-AI/ai-copilot-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/Auto-no-mous-AI/ai-copilot-sdk/actions/workflows/ci.yml) [![Release](https://github.com/Auto-no-mous-AI/ai-copilot-sdk/actions/workflows/release.yml/badge.svg)](https://github.com/Auto-no-mous-AI/ai-copilot-sdk/actions/workflows/release.yml)
+
+
 
 Standalone framework-agnostic JavaScript SDK and browser loader for the AI Copilot platform.
 
@@ -71,3 +74,9 @@ See [examples/vanilla-host.html](examples/vanilla-host.html) for a standalone ho
 - `src/loader.ts`: script-loader entrypoint
 - `examples/`: host integration examples
 - `docs/`: package-specific usage docs
+
+## CI And Release
+
+- Manual CI trigger is available through the CI workflow in GitHub Actions.
+- Release instructions live in [docs/releasing.md](./docs/releasing.md).
+
