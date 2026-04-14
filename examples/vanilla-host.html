@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Copilot Vanilla Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #eef3fb;
+        color: #14213d;
+      }
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 48px 24px 120px;
+      }
+      .card {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 12px 32px rgba(17, 36, 77, 0.08);
+      }
+      code {
+        background: #e9eef9;
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <h1>Vanilla Host Example</h1>
+        <p>This static page shows how a host application can initialize the AI Copilot widget using the built SDK.</p>
+        <p>Before opening this file, build the package with <code>npm run build</code>.</p>
+      </div>
+    </main>
+    <script type="module">
+      import { initCopilot } from '../dist/index.js';
+
+      void initCopilot({
+        appId: 'demo-app',
+        environment: 'dev',
+        installToken: 'replace-with-real-install-token',
+        apiBaseUrl: 'http://127.0.0.1:3000/api',
+        theme: {
+          primary: '#1338be',
+          drawerWidth: 420,
+          placement: 'right',
+        },
+      }).catch((error) => {
+        console.error('Unable to initialize AI Copilot example:', error);
+      });
+    </script>
+  </body>
+</html>

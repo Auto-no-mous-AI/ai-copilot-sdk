@@ -1,0 +1,48 @@
+﻿{
+  "name": "@auto-no-mous/copilot-web",
+  "version": "0.1.0",
+  "description": "Framework-agnostic embeddable copilot SDK and browser loader",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "docs"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./loader": {
+      "types": "./dist/loader.d.ts",
+      "import": "./dist/loader.js",
+      "require": "./dist/loader.cjs"
+    }
+  },
+  "scripts": {
+    "build": "node ./node_modules/tsup/dist/cli-default.js src/index.ts src/loader.ts --format esm,cjs --dts --clean && node ./node_modules/tsup/dist/cli-default.js src/loader.ts --format iife --global-name AutoNoMousCopilotLoader --out-dir dist/browser --minify",
+    "clean": "powershell -NoProfile -Command \"if (Test-Path dist) { Remove-Item -Recurse -Force dist }\"",
+    "lint": "tsc --noEmit",
+    "test": "npm run build"
+  },
+  "keywords": [
+    "copilot",
+    "widget",
+    "sdk",
+    "javascript",
+    "loader"
+  ],
+  "author": "Auto-no-mous AI",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}

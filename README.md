@@ -1,25 +1,73 @@
-# AI Copilot SDK
+﻿# AI Copilot SDK
 
-Framework-agnostic JavaScript SDK and embeddable loader for enterprise applications.
+Standalone framework-agnostic JavaScript SDK and browser loader for the AI Copilot platform.
 
-## Repository scaffold
-- src
-- src/embed
-- src/theme
-- scripts
-- examples
-- docs
+## Package
 
-## Status
-Scaffolded with baseline files:
-- .editorconfig
-- .gitignore
-- CONTRIBUTING.md
-- .github/CODEOWNERS
-- .github/pull_request_template.md
-- .github/workflows/ci.yml
+This repository publishes:
 
-## Next steps
-1. Initialize project tooling (Angular/NestJS/package setup).
-2. Add lint, test, and build scripts in package.json.
-3. Expand CI with repository-specific jobs.
+- `@auto-no-mous/copilot-web`
+
+## What it includes
+
+- runtime widget bootstrap with `initCopilot(...)`
+- browser loader entrypoint for script-tag installation
+- floating action button
+- side drawer chat UI
+- ASK / TEST / AGENT mode switching
+- SSE streaming integration against `/api/chat/stream`
+- install-token bootstrap against `/api/embed/config`
+
+## Install
+
+```bash
+npm install @auto-no-mous/copilot-web
+```
+
+## Build
+
+```bash
+npm install
+npm run build
+```
+
+## Basic usage
+
+```ts
+import { initCopilot } from '@auto-no-mous/copilot-web';
+
+await initCopilot({
+  appId: 'app_123',
+  environment: 'prod',
+  installToken: 'itkn_xxx',
+  apiBaseUrl: 'https://api.example.com/api',
+  theme: {
+    primary: '#1338be',
+    drawerWidth: 420,
+    placement: 'right',
+  },
+});
+```
+
+## Script tag usage
+
+```html
+<script
+  src="https://cdn.example.com/loader.global.js"
+  data-app-id="app_123"
+  data-env="prod"
+  data-install-token="itkn_xxx"
+  data-api-base-url="https://api.example.com/api">
+</script>
+```
+
+## Example
+
+See [examples/vanilla-host.html](examples/vanilla-host.html) for a standalone host page.
+
+## Repository structure
+
+- `src/index.ts`: main widget bootstrap and runtime UI
+- `src/loader.ts`: script-loader entrypoint
+- `examples/`: host integration examples
+- `docs/`: package-specific usage docs
