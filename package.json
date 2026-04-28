@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "@auto-no-mous/copilot-web",
   "version": "0.1.0",
   "description": "Framework-agnostic embeddable copilot SDK and browser loader",
@@ -43,6 +43,6 @@
   },
   "devDependencies": {
     "tsup": "^8.5.0",
-    "typescript": "^5.8.3"
+    "typescript": "^6.0.3"
   }
 }
