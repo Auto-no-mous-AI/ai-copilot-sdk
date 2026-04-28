@@ -1,13 +1,14 @@
 ## Summary
-- What changed?
-- Why is this needed?
+
+Describe what changed and why.
+
+## Enterprise Readiness Checks
+
+- [ ] Auth, tenant isolation, and permissions are unchanged or tested.
+- [ ] No secrets, customer data, or sensitive logs are committed.
+- [ ] CI, build, and relevant tests pass locally or in GitHub Actions.
+- [ ] Documentation, runbooks, or release notes were updated when behavior changed.
 
 ## Testing
-- [ ] Unit tests
-- [ ] Integration tests
-- [ ] Manual verification
 
-## Checklist
-- [ ] Docs updated if needed
-- [ ] Backward compatibility considered
-- [ ] Security impact reviewed
+List commands run and any important manual verification.

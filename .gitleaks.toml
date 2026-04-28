@@ -1,0 +1,11 @@
+title = "Auto-no-mous AI baseline secret scanning"
+
+[allowlist]
+description = "Synthetic examples and documentation placeholders"
+regexes = [
+  '''example''',
+  '''placeholder''',
+  '''changeme''',
+  '''itkn_xxx''',
+  '''app_123'''
+]
